@@ -1,0 +1,16 @@
+def factorial(x):
+	if x==0:
+		return(1)
+	else:
+		return(x)*factorial(x-1)
+
+
+
+def comb(n):
+	x=0
+	for i in range(0,len(n)):
+		x=x+int(n[i])
+	return x 	
+
+a=list(str(factorial(100)))
+print(comb(a))

@@ -1,0 +1,265 @@
+print("Hello!")
+
+#!/usr/bin/python
+import math
+pi=math.pi
+
+def average(x,y):
+	return(x+y)/2
+
+def factorial(x):
+	if x==0:
+		return(1)
+	else:
+		return(x)*factorial(x-1)
+
+def distance(a,b,c,d):
+		return ((a-c)**2 + (b-d)**2)**.5
+
+def max(x,y):
+	if x>y:
+		return x
+	else:
+		return y	
+
+def derivative(a,b):
+	c=a*b
+	d=b-1
+	return(c,b)
+
+def zeroquadratic(a,b,c):
+	d=b**2 - 4*a*c
+	return (-b+(d**.5))/(2*a), (-b-(d**.5))/(2*a)
+
+def permutation(n,r):
+	return factorial(n)/(factorial(n-r))
+
+def combination(n,r):
+	return factorial(n)/(factorial(n-r)*factorial(r))
+
+
+print("Hello again!")		
+
+math.sin(math.pi)
+
+def weirdsum(x,y):
+	sum=0
+	for a in range(x,y+1):
+		if a % 3==0:
+			sum=sum+a
+		if a % 5==0:
+			sum=sum+a
+		if a % 5==0 and a%3==0:
+			sum=sum-a
+	return sum
+	
+
+
+def strangesum(n):
+	sum=0
+	for x in range(0,n):
+		if x%3==0 or x%5==0:
+			sum=sum+x
+		elif x%3==0 and x%5==0:
+			sum=sum-x
+	return sum
+	
+
+def fib_num(n):
+	g=(1+5**.5)/2
+	return math.floor((g**n-(-g)**(-n))/(5**.5)+.5)
+
+
+def sum_even_fib(x,y):
+	sum=0
+	for a in range(x,y+1):
+		if fib_num(a)%2==0:
+			sum=sum+fib_num(a)
+	return sum		
+	
+
+def factor(c):
+	factors=[]
+	for a in range(2,c):
+		if c%a==0:
+			factors=factors+[a]
+	return factors
+	
+
+def primefactors(x):
+	primes=[]
+	factors=factor(x)
+	for i in range(0,len(factors)):
+		z=factors[i]
+		if len(factor(z))==0:
+			primes = primes + [z]
+	return primes		
+
+def prime(x):
+	return len(factor(x))==0
+
+
+def primefactors2(x):
+		if x==1:
+			return [1]
+		for i in range(2,x+1):
+			if x%i==0 and prime(i):
+				return [i] + primefactors2(math.floor(x/i))
+
+
+def pal():
+		pal=[]
+		for a in range(1,10):
+			for b in range(0,10):
+				for c in range(0,10):
+					pal=pal+[100000*a + 10000*b + 1000*c + 100*c + 10*b + a]
+		return pal
+
+
+def fac2(x):
+	for i in range(333,1000):
+		if x%i==0:
+			return math.floor(x/i)
+		else:
+			return 0
+
+
+
+def fac3(x):
+	return fac2(x)>333 and fac2(x)<1000
+
+
+def facpal():
+	y=pal()
+	y=filter(fac3,y)
+	return y
+		
+			
+def fac4(x):
+	y=factor(x)
+	count=0
+	for i in range(0,len(y)):
+		if y[i]>99 and y[i]<1000:
+			count = count +1
+	return count>1
+
+def divfirst(x):
+		for j in range(1,10**11):	
+			count=0
+			for i in range(math.floor(x/2)+1,x+1):
+				if j%i==0:
+					count=count+1
+			if count==(x-math.floor(x/2)):
+				return j
+					
+			
+
+		
+def sumofsquares(x):
+	y=0
+	for i in range(1,x+1):
+		y=y+i**2
+	return y
+	
+def squareofsums(x):
+	return (((x**2)+x)/2)**2
+
+def difofsquares(x):
+	return squareofsums(x)-sumofsquares(x)
+
+
+def fastprime(n):
+	for i in range(2, math.floor((n+1)/2)):
+		if n%i==0:
+			return False
+	return True	
+
+def firstnprimes(n):
+	primes=[]
+	for i in range(0,10*10):
+		if fastprime(2*i+1):
+			primes=primes+[2*i+1]
+		if len(primes)==n:
+				return primes
+
+							
+def primes(x):
+	primes=[2]
+	for i in range(3,10**20):
+		index=0
+		count=0
+		while index<len(primes):
+			if i%primes[index]==0:
+					index=len(primes)
+			else:
+				index=index+1
+				count=count+1
+		if count==len(primes):
+			primes=primes+[i] 
+		if len(primes)==x:
+			return primes
+
+
+def product5d(x):
+	x=list(str(x))
+	max=0
+	for i in range(0,len(x)-4):
+		num = int(x[i])*int(x[i+1])*int(x[i+2])*int(x[i+3])*int(x[i+4])
+		if num>max:
+			max=num
+	return max
+	
+a1=list("73167176531330624919225119674426574742355349194934")
+a2=list("96983520312774506326239578318016984801869478851843")
+a3=list("85861560789112949495459501737958331952853208805511")
+a4=list("12540698747158523863050715693290963295227443043557")
+a5=list("66896648950445244523161731856403098711121722383113")
+a6=list("62229893423380308135336276614282806444486645238749")
+a7=list("30358907296290491560440772390713810515859307960866")
+a8=list("70172427121883998797908792274921901699720888093776")
+a9=list("65727333001053367881220235421809751254540594752243")
+a10=list("52584907711670556013604839586446706324415722155397")
+a11=list("53697817977846174064955149290862569321978468622482")
+a12=list("83972241375657056057490261407972968652414535100474")
+a13=list("82166370484403199890008895243450658541227588666881")
+a14=list("16427171479924442928230863465674813919123162824586")
+a15=list("17866458359124566529476545682848912883142607690042")
+a16=list("24219022671055626321111109370544217506941658960408")
+a17=list("07198403850962455444362981230987879927244284909188")
+a18=list("84580156166097919133875499200524063689912560717606")
+a19=list("05886116467109405077541002256983155200055935729725")
+a20=list("71636269561882670428252483600823257530420752963450")
+
+number=a1+a2+a3+a4+a5+a6+a7+a8+a9+a10+a11+a12+a13+a14+a15+a16+a17+a18+a19+a20
+
+
+def comb(n):
+	x=0
+	for i in range(0,len(n)):
+		x=x+int(n[i])
+	return x 	
+
+def ptriplet():
+	triplets=[]
+	for a in range(1,1000):
+		for b in range(1,1000):
+			c=((a**2)+(b**2))**.5
+			if a+b+c==1000:
+				return [a,b,c]
+
+number3=list(map(int,list(str(2**1000))))
+
+a=list(str(factorial(100)))
+print(comb(a))
+
+
+def fiblargerthanln(x):
+	hey=True
+	index=1
+	while hey:
+		num=math.log(fib_num(index))
+		if num==x or num>x:
+			hey=False
+			return index
+		else:
+			index=index+1

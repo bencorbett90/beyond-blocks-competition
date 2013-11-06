@@ -1,0 +1,19 @@
+def primefactors(x):
+	primes=[]
+	factors=factor(x)
+	for i in range(0,len(factors)):
+		z=factors[i]
+		if len(factor(z))==0:
+			primes = primes + [z]
+	return primes		
+
+def prime(x):
+	return len(factor(x))==0
+
+
+def primefactors2(x):
+		if x==1:
+			return [1]
+		for i in range(2,x+1):
+			if x%i==0 and prime(i):
+				return [i] + primefactors2(math.floor(x/i))

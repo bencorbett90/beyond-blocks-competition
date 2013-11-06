@@ -1,0 +1,12 @@
+def fib_num(n):
+	g=(1+5**.5)/2
+	return math.floor((g**n-(-g)**(-n))/(5**.5)+.5)
+
+
+def sum_even_fib(x,y):
+	sum=0
+	for a in range(x,y+1):
+		if fib_num(a)%2==0:
+			sum=sum+fib_num(a)
+	return sum		
+	

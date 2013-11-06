@@ -1,0 +1,30 @@
+def fastprime(n):
+	for i in range(2, math.floor((n+1)/2)):
+		if n%i==0:
+			return False
+	return True	
+
+def firstnprimes(n):
+	primes=[]
+	for i in range(0,10*10):
+		if fastprime(2*i+1):
+			primes=primes+[2*i+1]
+		if len(primes)==n:
+				return primes
+
+							
+def primes(x):
+	primes=[2]
+	for i in range(3,10**20):
+		index=0
+		count=0
+		while index<len(primes):
+			if i%primes[index]==0:
+					index=len(primes)
+			else:
+				index=index+1
+				count=count+1
+		if count==len(primes):
+			primes=primes+[i] 
+		if len(primes)==x:
+			return primes
